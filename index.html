@@ -1,0 +1,44 @@
+<html>
+  <head>
+    <script type="text/javascript" src="app.js"></script>
+    <link rel="stylesheet" type="text/css" href="app.css">
+  </head>
+  <body>
+    <div id="start">
+      <img width="10%" src="calculator-svgrepo-com.svg" />
+      <h2>Multiplication Tables Practice!</h2>
+      <p>
+        <i>A simple math game for primary school students to improve their memory and speed for the 2-12 Multiplication Tables.</i>
+      </p>
+      <hr>
+      <p>Enter your name: <br>
+        <input type="text" id="name">
+      </p>
+      <p>Enter number of questions: <br>
+        <input type="text" id="numRounds">
+      </p>
+      <button onclick="startQuiz()">Start</button>
+    </div>
+    <div id="quiz" style="display: none">
+      <img width="10%" src="abacus-svgrepo-com.svg" />
+      <p>
+      <h1>Round <span id="round"></span>
+      </h1>
+      </p>
+      <hr>
+      <p>
+      <h2>
+        <span id="number1"></span> x <span id="number2"></span> = <input type="text" id="answer">
+      </h2>
+      </p>
+      <button id="submitButton">Submit</button>
+      <p id="result"></p>
+      <div id="progress-bar-container">
+        <div id="progress-bar"></div>
+      </div>
+      <button id="playAgainButton" style="display: none">Play Again</button>
+    </div>
+    <div id="leaderboard" style="display: none"></div>
+    <footer> by Noveck J. Gowandan (2023)</footer>
+  </body>
+</html>
