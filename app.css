@@ -2,7 +2,7 @@ body {
      background-color: #f2f2f2;
      font-family: Arial, sans-serif;
 }
- #start, #quiz, #leaderboard {
+ #start, #quiz, #leaderboard, #fin {
      width: 75%;
      padding: 20px;
      background-color: #ffffff;

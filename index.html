@@ -5,7 +5,7 @@
   </head>
   <body>
     <div id="start">
-      <img width="10%" src="calculator-svgrepo-com.svg" />
+      <img width="10%" src="assets/calculator-svgrepo-com.svg" />
       <h2>Multiplication Tables Practice!</h2>
       <p>
         <i>A simple math game for primary school students to improve their memory and speed for the 2-12 Multiplication Tables.</i>
@@ -20,7 +20,7 @@
       <button onclick="startQuiz()">Start</button>
     </div>
     <div id="quiz" style="display: none">
-      <img width="10%" src="abacus-svgrepo-com.svg" />
+      <img width="10%" src="assets/abacus-svgrepo-com.svg" />
       <p>
       <h1>Round <span id="round"></span>
       </h1>
@@ -28,17 +28,26 @@
       <hr>
       <p>
       <h2>
-        <span id="number1"></span> x <span id="number2"></span> = <input type="text" id="answer">
+        <span id="number1"></span> x <span id="number2"></span> = <input type="text" id="answer" >
       </h2>
       </p>
-      <button id="submitButton">Submit</button>
       <p id="result"></p>
+      <button id="submitButton">Submit</button>
       <div id="progress-bar-container">
         <div id="progress-bar"></div>
       </div>
+      
+    </div>
+    <div id="fin" style="display: none">
+      <img width="12%" src="assets/celebration-spark-svgrepo-com.svg" />
+      <h1>Done!
+      </h1>
+      </p>
+      <hr>
+      <p id="finished"></p>
       <button id="playAgainButton" style="display: none">Play Again</button>
     </div>
     <div id="leaderboard" style="display: none"></div>
-    <footer> by Noveck J. Gowandan (2023)</footer>
+    <footer> by Noveck J. Gowandan X ChatGPT (2023)</footer>
   </body>
 </html>

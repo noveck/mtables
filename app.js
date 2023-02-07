@@ -14,6 +14,7 @@ function startQuiz() {
 
     document.getElementById("quiz").style.display = "block";
     document.getElementById("start").style.display = "none";
+    document.getElementById("fin").style.display = "none";
     document.getElementById("round").innerHTML = round;
 
     function playRound() {
@@ -39,6 +40,7 @@ function startQuiz() {
             var timeTaken = (new Date().getTime() - startTime) / 1000;
             totalTime += timeTaken;
             var result = "";
+            var finished = "";
             if (answer == num1 * num2) {
                 totalCorrect++;
                 result = "Correct! Time taken: " + timeTaken + " seconds.";
@@ -57,13 +59,16 @@ function startQuiz() {
             if (round <= numRounds) {
                 playRound();
             } else {
-                result = "Congrats, " + name + "! You have completed all " + numRounds + " rounds. Total time: " + totalTime.toFixed(2) + " seconds. Final Score: " + (totalCorrect / numRounds * 100).toFixed(2) + "%.";
+                finished = "Congrats, " + name + "! You have completed all " + numRounds + " rounds. Total time: " + totalTime.toFixed(2) + " seconds. Final Score: " + (totalCorrect / numRounds * 100).toFixed(2) + "%.";
                 document.getElementById("leaderboard").style.display = "block";
                 document.getElementById("result").classList.remove("incorrect");
                 document.getElementById("result").classList.remove("correct");
                 document.getElementById("result").innerHTML = result;
+                 document.getElementById("finished").innerHTML = finished;
                 document.getElementById("submitButton").style.display = "none";
                 document.getElementById("progress-bar").style.width = "100%";
+                document.getElementById("quiz").style.display = "none";
+                document.getElementById("fin").style.display = "block";
                 leaderboard.push({
                     name: name,
                     numRounds: numRounds,
@@ -72,14 +77,14 @@ function startQuiz() {
                     date: new Date().toLocaleString()
                 });
                 leaderboard.sort(function(a, b) {
-                    return b.score - a.score;
-                });
+                return new Date(b.date) - new Date(a.date);
+}               );
                 var leaderboardHTML = "<h2>Score Details</h2><table><tr><th>Rank</th><th>Name</th><th>Rounds</h><th>Time (secs)</th><th>Score</th><th>Date</th></tr>";
                 for (var i = 0; i < leaderboard.length; i++) {
                     leaderboardHTML += "<tr><td>" + (i + 1) + "</td><td>" + leaderboard[i].name + "</td><td>" + leaderboard[i].numRounds + "</td><td>" + leaderboard[i].totalTime + "</td><td>" + (leaderboard[i].totalCorrect / leaderboard[i].numRounds * 100).toFixed(2) + "%</td><td>" + leaderboard[i].date + "</td></tr>";
                 }
                 leaderboardHTML += "</table>";
-                leaderboardHTML += "<br><img width=\"8%\" src=\"light-bulb-svgrepo-com.svg\" />"
+                leaderboardHTML += "<br><img width=\"8%\" src=\"assets/light-bulb-svgrepo-com.svg\" />"
                 document.getElementById("leaderboard").innerHTML = leaderboardHTML;
 
                 //
@@ -95,6 +100,7 @@ function startQuiz() {
                     document.getElementById("leaderboard").style.display = "none";
                     document.getElementById("submitButton").style.display = "inline-block";
                     document.getElementById("progress-bar").style.width = "0%";
+                    document.getElementById("fin").style.display = "none";
                 };
                 //
             }
